@@ -369,6 +369,9 @@ ExternalProject_Add(root
   COMMAND ${patch} -p1 -i "${CMAKE_SOURCE_DIR}/legacy/root/fix_root_install_external_tars_with_cmake_3_24.patch"
   COMMAND ${patch} -p1 -i "${CMAKE_SOURCE_DIR}/legacy/root/fix_compilation_with_gcc13.patch"
   COMMAND ${patch} -p1 -i "${CMAKE_SOURCE_DIR}/legacy/root/fix_strlcpy_if_glibc_gt_2.38.patch"
+  # Bump XRootD from 5.5.1 to 5.5.2 to bring GCC13 fix:
+  # https://github.com/xrootd/xrootd/commit/602d1d5c93a429fda55f0a5dffff2873c552b9a5
+  COMMAND ${patch} -p1 -i "${CMAKE_SOURCE_DIR}/legacy/root/fix_xrootd_gcc13.patch
   ${CMAKE_DEFAULT_ARGS} CMAKE_ARGS
     "-Daqua=ON"
     "-Dasimage=ON"
